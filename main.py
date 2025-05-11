@@ -41,6 +41,11 @@ def main():
         for obj in drawable:
             obj.draw(screen)
 
+        for obj in asteroids:
+            if obj.collision(player):
+                print("Game Konec")
+                exit()
+
         pygame.display.flip()
         clock.tick(60)
 
