@@ -51,11 +51,18 @@ def main():
                 print("Game Konec")
                 exit()
 
+        for asteroid in asteroids:
+            for bullet in shots:
+                if bullet.collision(asteroid):
+                    asteroid.kill()
+                    bullet.kill()
+
         pygame.display.flip()
         clock.tick(60)
 
         # limitation of FPS to 60fps
         dt = clock.tick(60)/1000
+
 
 
 
