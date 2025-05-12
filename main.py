@@ -46,16 +46,23 @@ def main():
         for obj in drawable:
             obj.draw(screen)
 
-        for obj in asteroids:
-            if obj.collision(player):
+        for asteroid in asteroids:
+            if asteroid.collision(player):
                 print("Game Konec")
                 exit()
 
-        for asteroid in asteroids:
             for bullet in shots:
-                if bullet.collision(asteroid):
-                    asteroid.kill()
+                if asteroid.collision(bullet):
                     bullet.kill()
+                    asteroid.kill()
+
+
+        # TOO MANY LOOPING
+        # for asteroid in asteroids:
+        #     for bullet in shots:
+        #         if bullet.collision(asteroid):
+        #             asteroid.kill()
+        #             bullet.kill()
 
         pygame.display.flip()
         clock.tick(60)
